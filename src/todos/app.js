@@ -18,7 +18,6 @@ export const App = (elementId) => {
         renderTodos(ElementIDs.TodoList, todos);
     }
 
-
     //Cuando la funcion app se llama
     (() => {
         const app = document.createElement('div');
@@ -40,13 +39,13 @@ export const App = (elementId) => {
         todoStore.addTodo(event.target.value);
         displayTodos();
         event.target.value = '';
-    })
+    });
 
     todoListUL.addEventListener('click', (event) => {
         const element = event.target.closest('[data-id]');
         todoStore.toggleTodo(element.getAttribute('data-id'));
         displayTodos();
-    })
+    });
 
     todoListUL.addEventListener('click', (event) => {
         const deleteElement = event.target.className === 'destroy';
@@ -56,5 +55,5 @@ export const App = (elementId) => {
 
         todoStore.deleteTodo(element.getAttribute('data-id'));
         displayTodos();
-    })
+    });
 }
